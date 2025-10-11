@@ -1,0 +1,166 @@
+import moment from "moment-timezone";
+import fs from "fs";
+import os from "os";
+import pkg from "@whiskeysockets/baileys";
+const { generateWAMessageFromContent, proto, prepareWAMessageMedia } = pkg;
+import config from "../config.cjs";
+import axios from "axios";
+
+// System stats
+const totalMemoryBytes = os.totalmem();
+const freeMemoryBytes = os.freemem();
+const byteToKB = 1 / 1024;
+const byteToMB = byteToKB / 1024;
+const byteToGB = byteToMB / 1024;
+
+function formatBytes(bytes) {
+  if (bytes >= Math.pow(1024, 3)) return (bytes * byteToGB).toFixed(2) + " GB";
+  if (bytes >= Math.pow(1024, 2)) return (bytes * byteToMB).toFixed(2) + " MB";
+  if (bytes >= 1024) return (bytes * byteToKB).toFixed(2) + " KB";
+  return bytes.toFixed(2) + " bytes";
+}
+
+const uptime = process.uptime();
+const day = Math.floor(uptime / (24 * 3600));
+const hours = Math.floor((uptime % (24 * 3600)) / 3600);
+const minutes = Math.floor((uptime % 3600) / 60);
+const seconds = Math.floor(uptime % 60);
+const uptimeMessage = `*I've been grindin' for ${day}d ${hours}h ${minutes}m ${seconds}s* 🕒`;
+const runMessage = `*☀️ ${day} Day*\n*🕐 ${hours} Hour*\n*⏰ ${minutes} Min*\n*⏱️ ${seconds} Sec*`;
+
+// Time logic
+const xtime = moment.tz("Africa/Harare").format("HH:mm:ss");
+const xdate = moment.tz("Africa/Harare").format("DD/MM/YYYY");
+const time2 = moment().tz("Africa/Harare").format("HH:mm:ss");
+let pushwish = "";
+
+if (time2 < "05:00:00") {
+  pushwish = `🌄 𝐆𝐨𝐨𝐝 𝐌𝐨𝐫𝐧𝐢𝐧𝐠`;
+} else if (time2 < "11:00:00") {
+  pushwish = `🌄 𝐆𝐨𝐨𝐝 𝐌𝐨𝐫𝐧𝐢𝐧𝐠`;
+} else if (time2 < "15:00:00") {
+  pushwish = `🌅𝐆𝐨𝐨𝐝 𝐀𝐟𝐭𝐞𝐫𝐧𝐨𝐨𝐧`;
+} else if (time2 < "18:00:00") {
+  pushwish = `🌃 𝐆𝐨𝐨𝐝 𝐄𝐯𝐞𝐧𝐢𝐧𝐠`;
+} else if (time2 < "19:00:00") {
+  pushwish = `🌃𝐆𝐨𝐨𝐝 𝐄𝐯𝐞𝐧𝐢𝐧𝐠`;
+} else {
+  pushwish = `🌌 𝐆𝐨𝐨𝐝 𝐍𝐢𝐠𝐡𝐭`;
+} 
+
+const menu = async (m, Matrix) => {
+  try {
+    const prefix = config.Prefix || config.PREFIX || ".";
+    const cmd = m.body?.startsWith(prefix) ? m.body.slice(prefix.length).split(" ")[0].toLowerCase() : "";
+    const validCommands = ["owner", "oownernumber", "ownerbot"];
+
+    if (!validCommands.includes(cmd)) return;
+
+    const mode = config.MODE === "public" ? "public" : "private";
+    const str = `*╰► ${pushwish}* ${m.pushName}
+`;
+
+    // Function to get image from URL
+    const getImageFromURL = async (url) => {
+      try {
+        const response = await axios.get(url, { 
+          responseType: 'arraybuffer',
+          timeout: 10000
+        });
+        return Buffer.from(response.data);
+      } catch (error) {
+        console.error("Error fetching image from URL:", error.message);
+        return null;
+      }
+    };
+
+    // Use only default image
+    const defaultImageUrl = "https://files.catbox.moe/1cp4yq.jpeg";
+    const menuImage = await getImageFromURL(defaultImageUrl);
+
+    const buttons = [
+      {
+        name: "quick_reply",
+        buttonParamsJson: JSON.stringify({
+          display_text: "💬message",
+          id: "message"
+        })
+      },
+      {
+        name: "cta_copy",
+        buttonParamsJson: JSON.stringify({
+          display_text: "📋Copy message",
+          id: "copy_code",
+          copy_code: +263718095555
+        })
+      },
+      {
+        name: "cta_url",
+        buttonParamsJson: JSON.stringify({
+          display_text: "📚Follow Channel",
+          url: `https://whatsapp.com/channel/0029Vb5vbMM0LKZJi9k4ED1a`
+        }),
+      },
+    ];
+
+    // Prepare message content
+    let messageContent = {
+      viewOnceMessage: {
+        message: {
+          interactiveMessage: proto.Message.InteractiveMessage.create({
+            body: proto.Message.InteractiveMessage.Body.create({
+              text: str,
+            }),
+            footer: proto.Message.InteractiveMessage.Footer.create({
+              text: " ∞𝐩𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 ᴛᴋᴛ-ᴛᴇᴄʜ",
+            }),
+            contextInfo: {
+              mentionedJid: [m.sender],
+              forwardingScore: 999,
+              isForwarded: true,
+              forwardedNewsletterMessageInfo: {
+                newsletterJid: "120363418027651738@newsletter",
+                newsletterName: "𝐓𝐊𝐓-𝐂𝐘𝐁𝐄𝐑 𝐀𝐈",
+                serverMessageId: 143,
+              },
+            },
+          }),
+        },
+      },
+    };
+
+    // Add header with default image
+    if (menuImage) {
+      const preparedImage = await prepareWAMessageMedia(
+        { image: menuImage }, 
+        { upload: Matrix.waUploadToServer }
+      );
+      
+      messageContent.viewOnceMessage.message.interactiveMessage.header = 
+        proto.Message.InteractiveMessage.Header.create({
+          imageMessage: preparedImage.imageMessage,
+          hasMediaAttachment: true,
+        });
+    }
+
+    // Add buttons
+    messageContent.viewOnceMessage.message.interactiveMessage.nativeFlowMessage = 
+      proto.Message.InteractiveMessage.NativeFlowMessage.create({
+        buttons,
+      });
+
+    const msg = generateWAMessageFromContent(m.from, messageContent, {});
+
+    await Matrix.relayMessage(msg.key.remoteJid, msg.message, {
+      messageId: msg.key.id,
+    });
+
+  } catch (error) {
+    console.error(`❌ Menu error: ${error.message}`);
+    await Matrix.sendMessage(m.from, {
+      text: `*Caseyrhodes* hit a snag, fam! Try again! 😈`,
+    }, { quoted: m });
+  }
+};
+
+export default menu;
