@@ -242,7 +242,7 @@ const video = async (message, client) => {
         await sendCustomReaction(client, message, "❌");
         
         return await client.sendMessage(message.from, {
-          text: "*ᴄᴀsᴇʏʀʜᴏᴅᴇs ᴀɪ* " + toFancyFont("couldn't process your request. Please try again later"),
+          text: "*ᴛᴋᴛ-ᴄʏʙᴇʀ-ᴀɪ* " + toFancyFont("couldn't process your request. Please try again later"),
           mentions: [message.sender]
         }, { quoted: message });
       }
