@@ -18,7 +18,7 @@ const aiMenu = async (m, Matrix) => {
   const cmd = m.body.startsWith(prefix) ? m.body.slice(prefix.length).split(' ')[0].toLowerCase() : '';
   const prompt = m.body.slice(prefix.length + cmd.length).trim();
 
-  const validCommands = ['ai', 'gpt', 'openai', 'deepseek', 'bing', 'marisel', 'groq', 'gpt4', 'gemini', 'deepimg'];
+  const validCommands = ['ai', 'gpt', 'openai', 'deepseek', 'bing', 'tafadzwa', 'groq', 'gpt4', 'gemini', 'deepimg'];
   const aiSubCommands = ['ai-menu'];
 
   // Check if user requested an image specifically
@@ -117,7 +117,7 @@ const aiMenu = async (m, Matrix) => {
 
       // If user requested an image specifically, include the image URL in a single message
       if (isImageRequested) {
-        const imageUrl = "https://i.ibb.co/fGSVG8vJ/caseyweb.jpg";
+        const imageUrl = "https://files.catbox.moe/1cp4yq.jpeg";
         
         // Create a combined message with image and text
         const template = generateWAMessageFromContent(m.from, 
@@ -130,7 +130,7 @@ const aiMenu = async (m, Matrix) => {
                 },
                 templateMessage: {
                   hydratedTemplate: {
-                    hydratedContentText: `*${toFancyFont(cmd)} ${cmd === 'deepimg' ? 'ɪᴍᴀɢᴇ' : 'ʀᴇsᴘᴏɴsᴇ'}*\n\n${answer}\n\n${toFancyFont('powered by Caseyrhodes xtech')}`,
+                    hydratedContentText: `*${toFancyFont(cmd)} ${cmd === 'deepimg' ? 'ɪᴍᴀɢᴇ' : 'ʀᴇsᴘᴏɴsᴇ'}*\n\n${answer}\n\n${toFancyFont('powered by ᴛᴋᴛ-ᴛᴇᴄʜ🇿🇼')}`,
                     hydratedFooterText: "AI Response with Image",
                     hydratedButtons: buttons,
                     templateId: "1234567890",
@@ -138,7 +138,7 @@ const aiMenu = async (m, Matrix) => {
                     imageMessage: {
                       url: imageUrl,
                       mimetype: "image/jpeg",
-                      caption: `*${toFancyFont(cmd)} ${cmd === 'deepimg' ? 'ɪᴍᴀɢᴇ' : 'ʀᴇsᴘᴏɴsᴇ'}*\n\n${answer}\n\n${toFancyFont('powered by Caseyrhodes xtech')}`,
+                      caption: `*${toFancyFont(cmd)} ${cmd === 'deepimg' ? 'ɪᴍᴀɢᴇ' : 'ʀᴇsᴘᴏɴsᴇ'}*\n\n${answer}\n\n${toFancyFont('powered by ᴛᴋᴛ-ᴛᴇᴄʜ🇿🇼')}`,
                     }
                   }
                 }
@@ -152,7 +152,7 @@ const aiMenu = async (m, Matrix) => {
       } else {
         // Send only text response
         await Matrix.sendMessage(m.from, { 
-          text: `*${toFancyFont(cmd)} ${cmd === 'deepimg' ? 'ɪᴍᴀɢᴇ' : 'ʀᴇsᴘᴏɴsᴇ'}*\n\n${answer}\n\n${toFancyFont('powered by Caseyrhodes xtech')}`,
+          text: `*${toFancyFont(cmd)} ${cmd === 'deepimg' ? 'ɪᴍᴀɢᴇ' : 'ʀᴇsᴘᴏɴsᴇ'}*\n\n${answer}\n\n${toFancyFont('powered by ᴛᴋᴛ-ᴛᴇᴄʜ🇿🇼')}`,
           buttons,
           headerType: 1
         }, { quoted: m });
