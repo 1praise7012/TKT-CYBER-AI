@@ -26,7 +26,7 @@ const config = {
 // make this true or false for auto react on all msgs
   BOT_NAME: process.env.BOT_NAME || "TKT-CYBER-AI",
   MENU_IMAGE: process.env.MENU_IMAGE || "https://files.catbox.moe/d622xc.png",
-  DESCRIPTION: process.env.DESCRIPTION || "© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄᴀsᴇʏʀʜᴏᴅᴇs ᴛᴇᴄʜ",
+  DESCRIPTION: process.env.DESCRIPTION || "© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴛᴀꜰᴀᴅᴢᴡᴀ-ᴛᴋᴛ",
   OWNER_NAME: process.env.OWNER_NAME || "TKT-TECH🇿🇼",
   OWNER_NUMBER: process.env.OWNER_NUMBER || "263718095555",
   GEMINI_KEY: process.env.GEMINI_KEY || "AIzaSyCUPaxfIdZawsKZKqCqJcC-GWiQPCXKTDc",
