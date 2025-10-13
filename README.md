@@ -1,7 +1,7 @@
 
 </p> 
 <p align="center">
-<a href="#">https://files.catbox.moe/qic338.png<img title="Creator" src="https://img.shields.io/badge/Creator-TAFADZWA-TKT-red.svg?style=for-the-badge&logo=github"></a>
+<a href="#"><img title="Creator" src="https://img.shields.io/badge/Creator-TAFADZWA-TKT-red.svg?style=for-the-badge&logo=github"></a>
 </a>
 </p>
 <p align="center">
