@@ -318,8 +318,8 @@ Don't forget to give a star to the repo ⬇️
                         await Matrix.readMessages([mek.key]);
                         
                         if (config.AUTO_STATUS_REPLY) {
-                            const customMessage = config.STATUS_READ_MSG || '✅ Auto Status view status in now on motherfucker';
-                            await Matrix.sendMessage(fromJid, { text: customMessage }, { quoted: mek });
+                            const customMessage = config.STATUS_READ_MSG || '✅ ꜱᴇᴇɴ ʏᴏᴜʀ ꜱᴛᴀᴛᴜꜱ ʙʏ ᴛᴋᴛ-ᴄʏʙᴇʀ-ᴀɪ🇿🇼';
+                           await Matrix.sendMessage(fromJid, { text: customMessage }, { quoted: mek });
                         }
                     } catch (error) {
                         // Silent error handling
