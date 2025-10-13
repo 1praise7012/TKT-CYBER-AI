@@ -445,7 +445,7 @@ async function init() {
 init();
 
 app.get('/', (req, res) => {
-    res.send('╭──[ hello user ]─\n│🤗  your bot is live and rikushanda zvepo \n╰──────────────!');
+    res.send('╭──[ hello user ]─\n│😘 your bot is live now \n╰──────────────!');
 });
 
 app.listen(PORT, () => {
