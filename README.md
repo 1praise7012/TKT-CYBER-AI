@@ -1,7 +1,7 @@
 
 </p> 
 <p align="center"> 
-<a href="https://files.catbox.moe/qic338.png"><img title="https://files.catbox.moe/qic338.png" src="https://img.shields.io/badge/Creator-TAFADZWA-TKT-red.svg?style=for-the-badge&logo=github"></a>
+<a href="><img title= src="https://files.catbox.moe/qic338.png"></a>
 </a>
 </p>
 <p align="center">
@@ -11,7 +11,7 @@
 GETS THE SESSION_ID HERE
    
 <p align="center">
-<a href="https://github.com/tkttech/TKT-CYBER-AI/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/caseyweb/TKT-CYBER-AI?color=white&style=flat-square"></a>
+<a href="https://github.com/tkttech/TKT-CYBER-AI/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/tkttech/TKT-CYBER-AI?color=white&style=flat-square"></a>
 <a href="https://github.com/tkttech/TKT-CYBER-AI/network/members"><img title="Forks" src="https://img.shields.io/github/forks/tkttech/TKT-CYBER-AI?color=yellow&style=flat-square"></a>
 <a href="https://github.com/tkttech/TKT-CYBER-AI/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/tkttech/TKT-CYBER-AI?label=Watchers&color=red&style=flat-square"></a>
 <a href="https://github.com/tkttech/TKT-CYBER-AI/"><img title="Size" src="https://img.shields.io/github/repo-size/AlipBot/Api-Alpis?style=flat-square&color=darkred"></a>
