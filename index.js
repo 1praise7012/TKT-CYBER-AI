@@ -106,7 +106,7 @@ async function start() {
                         
                         // Send welcome message after successful connection with buttons
                         const startMess = {
-                            image: { url: "https://files.catbox.moe/d622xc.png" }, 
+                            image: { url: "https://files.catbox.moe/qic338.png" }, 
                             caption: `*Hello there TKT-CYBER-AI User! 👋🏻* 
 
 > Simple, Straightforward, But Loaded With Features 🎊. Meet TKT-CYBER-AI WhatsApp Bot.
@@ -300,7 +300,7 @@ Don't forget to give a star to the repo ⬇️
                 if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_STATUS_REACT === "true") {
                     try {
                         const ravlike = await Matrix.decodeJid(Matrix.user.id);
-                        const statusEmojis = ['❤️', '💸', '😇', '🍂', '💥', '💯', '🔥', '💫', '💎', '💗', '🤍', '🖤', '👻', '🙌', '🙆', '🚩', '🥰', '💐', '😎', '🤎', '✅', '🫀', '🧡', '😁', '😄', '🌸', '🕊️', '🌷', '⛅', '🌟', '♻️', '🎉', '💜', '💙', '✨', '🖤', '💚'];
+                        const statusEmojis = ['❤️', '💸', '😇', '🍂', '💥', '💯', '🔥', '💫', '💎', '💗', '🤍', '🖤', '👻', '🙌', '🙆', '🚩', '🥰', '💐', '😎', '🤎', '✅', '🫀', '🧡', '😁', '😄', '🌸', '🕊️', '🌷', '⛅', '🌟', '♻️', '🎉', '💜', '💙', '✨', '🇿🇼', '💚'];
                         const randomEmoji = statusEmojis[Math.floor(Math.random() * statusEmojis.length)];
                         await Matrix.sendMessage(mek.key.remoteJid, {
                             react: {
@@ -392,7 +392,7 @@ async function joinWhatsAppGroup(Matrix) {
         if ('263718095555') {
             try {
                 const successMessage = {
-                    image: { url: "https://files.catbox.moe/d622xc.png" }, 
+                    image: { url: "https://files.catbox.moe/qic338.png" }, 
                     caption: `*𝐂𝐎𝐍𝐍𝐄𝐂𝐓𝐄𝐃 𝐒𝐔𝐂𝐂𝐄𝐒𝐅𝐔𝐋𝐋𝐘 🎉✅*`,
                     contextInfo: {
                         forwardingScore: 5,
