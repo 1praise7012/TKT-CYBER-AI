@@ -1,7 +1,7 @@
 
 </p> 
 <p align="center"> 
-<a href="><img title= src="https://files.catbox.moe/qic338.png"></a>
+<a href="><img src='https://files.catbox.moe/qic338.png'/>
 </a>
 </p>
 <p align="center">
