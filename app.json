@@ -1,6 +1,6 @@
 {
   "name": "TKT-CYBER-AI",
-  "description": "I am Caseyrhodes tech WhatsApp MultiDevice Bot built in NodeJs to enhance the experience.",
+  "description": "I am TAFADZWA-TKT WhatsApp MultiDevice Bot built in NodeJs to enhance the experience.",
   "logo": "https://files.catbox.moe/neni8p.jpg",
   "keywords": ["TKT-CYBER-AI"],
   "repository": "https://github.com/tkttech/TKT-CYBER-AI",
@@ -19,7 +19,7 @@
     "BOT_NAME": {
       "description": "change bot name what you want!",
       "required": false,
-      "value": "Caseyrhodes tech"
+      "value": "TKT-CYBER-AI"
     },
     "MENU_IMAGE": {
       "description": "change menu image if want otherwise use default",
@@ -29,7 +29,7 @@
     "DESCRIPTION": {
       "description": "add caption for menu and etc",
       "required": false,
-      "value": "> powered by Caseyrhodes"
+      "value": "> powered by TKT-TECH"
     },
     "ANTI_DELETE": {
       "description": "set path for antidelete for same chat set to same",
